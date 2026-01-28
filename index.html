@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="icon" href="logo.png" type="image/png">
     <title>Runia0/Zyrtheon</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌍</text></svg>">
     <style>
         * {
             margin: 0;
@@ -14,21 +14,25 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #0a0a0a;
-            color: white;
+            background: #0F172A;
+            color: #E5E7EB;
             overflow-x: hidden;
         }
 
-        @keyframes rgb {
-            0% { filter: hue-rotate(0deg); }
-            100% { filter: hue-rotate(360deg); }
+        @keyframes colorShift {
+            0%, 100% { 
+                border-image: linear-gradient(90deg, #1E3A8A, #0D3B66, #F97316, #FB923C);
+                border-image-slice: 1;
+            }
+            50% { 
+                border-image: linear-gradient(90deg, #FB923C, #F97316, #1E3A8A, #0D3B66);
+                border-image-slice: 1;
+            }
         }
 
-        @keyframes rgbGlow {
-            0%, 100% { box-shadow: 0 0 20px #ff0080, 0 0 40px #ff0080; }
-            25% { box-shadow: 0 0 20px #00ff80, 0 0 40px #00ff80; }
-            50% { box-shadow: 0 0 20px #0080ff, 0 0 40px #0080ff; }
-            75% { box-shadow: 0 0 20px #ff8000, 0 0 40px #ff8000; }
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px #1E3A8A, 0 0 40px #0D3B66; }
+            50% { box-shadow: 0 0 20px #F97316, 0 0 40px #FB923C; }
         }
 
         .navbar {
@@ -39,11 +43,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(10, 10, 10, 0.9);
+            background: rgba(15, 23, 42, 0.9);
             backdrop-filter: blur(10px);
             z-index: 1000;
             border-bottom: 2px solid;
-            border-image: linear-gradient(90deg, #ff0080, #00ff80, #0080ff, #ff8000, #ff0080);
+            border-image: linear-gradient(90deg, #1E3A8A, #0D3B66, #F97316, #FB923C);
             border-image-slice: 1;
             animation: slideDown 0.8s ease;
         }
@@ -54,13 +58,27 @@
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 30px;
             font-weight: bold;
-            background: linear-gradient(90deg, #ff0080, #00ff80, #0080ff, #ff8000);
-            background-size: 300% 300%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: rgb 3s linear infinite;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .logo-icon {
+            font-size: 36px;
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .logo:hover .logo-icon {
+            animation: rotate 2s linear infinite;
         }
 
         .nav-links {
@@ -70,7 +88,7 @@
         }
 
         .nav-links a {
-            color: #fff;
+            color: #E5E7EB;
             text-decoration: none;
             font-size: 16px;
             transition: all 0.3s;
@@ -85,7 +103,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(90deg, #ff0080, #00ff80, #0080ff);
+            background: linear-gradient(90deg, #1E3A8A, #F97316);
             transition: width 0.3s;
         }
 
@@ -96,18 +114,18 @@
         .language-switcher {
             display: flex;
             gap: 5px;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(30, 58, 138, 0.2);
             padding: 5px;
             border-radius: 25px;
             border: 2px solid;
-            border-image: linear-gradient(90deg, #ff0080, #00ff80, #0080ff);
+            border-image: linear-gradient(90deg, #1E3A8A, #F97316);
             border-image-slice: 1;
         }
 
         .language-switcher button {
             background: none;
             border: none;
-            color: #aaa;
+            color: #9CA3AF;
             cursor: pointer;
             font-size: 14px;
             padding: 8px 15px;
@@ -116,7 +134,7 @@
         }
 
         .language-switcher button.active {
-            background: linear-gradient(90deg, #ff0080, #00ff80, #0080ff);
+            background: linear-gradient(135deg, #1E3A8A, #F97316);
             color: white;
         }
 
@@ -126,7 +144,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(135deg, rgba(255, 0, 128, 0.1) 0%, rgba(0, 255, 128, 0.1) 100%);
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.2) 0%, rgba(249, 115, 22, 0.1) 100%);
             position: relative;
             overflow: hidden;
         }
@@ -136,10 +154,10 @@
             position: absolute;
             width: 500px;
             height: 500px;
-            background: radial-gradient(circle, rgba(255, 0, 128, 0.3), transparent);
+            background: radial-gradient(circle, rgba(30, 58, 138, 0.4), transparent);
             top: -200px;
             right: -200px;
-            animation: float 6s ease-in-out infinite, rgb 5s linear infinite;
+            animation: float 6s ease-in-out infinite;
         }
 
         .hero::after {
@@ -147,10 +165,10 @@
             position: absolute;
             width: 400px;
             height: 400px;
-            background: radial-gradient(circle, rgba(0, 255, 128, 0.3), transparent);
+            background: radial-gradient(circle, rgba(249, 115, 22, 0.4), transparent);
             bottom: -150px;
             left: -150px;
-            animation: float 8s ease-in-out infinite reverse, rgb 7s linear infinite;
+            animation: float 8s ease-in-out infinite reverse;
         }
 
         @keyframes float {
@@ -171,24 +189,29 @@
         .hero h1 {
             font-size: 64px;
             margin-bottom: 20px;
-            background: linear-gradient(90deg, #ff0080, #00ff80, #0080ff, #ff8000);
+            background: linear-gradient(90deg, #1E3A8A, #0D3B66, #F97316, #FB923C);
             background-size: 300% 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: rgb 4s linear infinite;
+            animation: gradientMove 5s ease infinite;
+        }
+
+        @keyframes gradientMove {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
         .hero p {
             font-size: 24px;
-            color: #aaa;
+            color: #9CA3AF;
             margin-bottom: 30px;
         }
 
         .cta-button {
             display: inline-block;
             padding: 15px 40px;
-            background: linear-gradient(90deg, #ff0080, #00ff80, #0080ff);
-            background-size: 300% 300%;
+            background: linear-gradient(135deg, #1E3A8A, #F97316);
+            background-size: 200% 200%;
             color: white;
             text-decoration: none;
             border-radius: 50px;
@@ -196,12 +219,12 @@
             transition: all 0.3s;
             border: none;
             cursor: pointer;
-            animation: rgb 3s linear infinite;
+            animation: gradientMove 3s ease infinite;
         }
 
         .cta-button:hover {
             transform: translateY(-3px);
-            animation: rgbGlow 2s ease-in-out infinite;
+            animation: glow 2s ease-in-out infinite, gradientMove 3s ease infinite;
         }
 
         section {
@@ -214,11 +237,11 @@
             font-size: 48px;
             margin-bottom: 50px;
             text-align: center;
-            background: linear-gradient(90deg, #ff0080, #00ff80, #0080ff, #ff8000);
+            background: linear-gradient(90deg, #1E3A8A, #0D3B66, #F97316, #FB923C);
             background-size: 300% 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: rgb 4s linear infinite;
+            animation: gradientMove 5s ease infinite;
         }
 
         .about-content {
@@ -231,7 +254,7 @@
         .about-text {
             font-size: 18px;
             line-height: 1.8;
-            color: #ccc;
+            color: #D1D5DB;
         }
 
         .about-image {
@@ -243,7 +266,7 @@
             justify-content: center;
             animation: pulse 3s ease-in-out infinite;
             border: 3px solid;
-            border-image: linear-gradient(90deg, #ff0080, #00ff80, #0080ff);
+            border-image: linear-gradient(90deg, #1E3A8A, #F97316);
             border-image-slice: 1;
         }
 
@@ -259,30 +282,31 @@
         }
 
         .skill-card {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(30, 58, 138, 0.1);
             padding: 30px;
             border-radius: 15px;
             border: 2px solid;
-            border-image: linear-gradient(45deg, #ff0080, #00ff80, #0080ff);
+            border-image: linear-gradient(45deg, #1E3A8A, #F97316);
             border-image-slice: 1;
             transition: all 0.3s;
         }
 
         .skill-card:hover {
             transform: translateY(-10px);
-            animation: rgbGlow 2s ease-in-out infinite;
+            animation: glow 2s ease-in-out infinite;
+            background: rgba(30, 58, 138, 0.2);
         }
 
         .skill-card h3 {
             font-size: 24px;
             margin-bottom: 15px;
-            background: linear-gradient(90deg, #ff0080, #00ff80, #0080ff);
+            background: linear-gradient(90deg, #1E3A8A, #F97316);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .skill-card p {
-            color: #aaa;
+            color: #9CA3AF;
             line-height: 1.6;
         }
 
@@ -293,29 +317,28 @@
         }
 
         .project-card {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(30, 58, 138, 0.1);
             border-radius: 15px;
             overflow: hidden;
             border: 2px solid;
-            border-image: linear-gradient(135deg, #ff0080, #00ff80, #0080ff);
+            border-image: linear-gradient(135deg, #1E3A8A, #F97316);
             border-image-slice: 1;
             transition: all 0.3s;
         }
 
         .project-card:hover {
             transform: translateY(-10px);
-            animation: rgbGlow 2s ease-in-out infinite;
+            animation: glow 2s ease-in-out infinite;
         }
 
         .project-image {
             width: 100%;
             height: 200px;
-            background: linear-gradient(135deg, #ff0080, #00ff80, #0080ff);
+            background: linear-gradient(135deg, #1E3A8A, #0D3B66, #F97316);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 60px;
-            animation: rgb 5s linear infinite;
         }
 
         .project-content {
@@ -325,10 +348,11 @@
         .project-content h3 {
             font-size: 22px;
             margin-bottom: 10px;
+            color: #E5E7EB;
         }
 
         .project-content p {
-            color: #aaa;
+            color: #9CA3AF;
             margin-bottom: 15px;
         }
 
@@ -351,26 +375,27 @@
             align-items: center;
             gap: 10px;
             padding: 15px 30px;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(30, 58, 138, 0.2);
             border-radius: 50px;
             border: 2px solid;
-            border-image: linear-gradient(90deg, #ff0080, #00ff80, #0080ff);
+            border-image: linear-gradient(90deg, #1E3A8A, #F97316);
             border-image-slice: 1;
             transition: all 0.3s;
         }
 
         .contact-item:hover {
-            animation: rgbGlow 2s ease-in-out infinite;
+            animation: glow 2s ease-in-out infinite;
+            transform: translateY(-2px);
         }
 
         footer {
             text-align: center;
             padding: 30px;
-            background: rgba(10, 10, 10, 0.9);
+            background: rgba(15, 23, 42, 0.9);
             border-top: 2px solid;
-            border-image: linear-gradient(90deg, #ff0080, #00ff80, #0080ff);
+            border-image: linear-gradient(90deg, #1E3A8A, #F97316);
             border-image-slice: 1;
-            color: #aaa;
+            color: #9CA3AF;
         }
 
         .spotify-sidebar, .donation-sidebar {
@@ -378,10 +403,10 @@
             top: 50%;
             transform: translateY(-50%);
             width: 320px;
-            background: rgba(10, 10, 10, 0.95);
+            background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(10px);
             border: 2px solid;
-            border-image: linear-gradient(135deg, #ff0080, #00ff80, #0080ff);
+            border-image: linear-gradient(135deg, #1E3A8A, #F97316);
             border-image-slice: 1;
             border-radius: 20px;
             padding: 20px;
@@ -401,28 +426,27 @@
             transform: translateY(-50%);
             width: 40px;
             height: 80px;
-            background: linear-gradient(135deg, #ff0080, #00ff80, #0080ff);
+            background: linear-gradient(135deg, #1E3A8A, #F97316);
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             font-size: 24px;
             transition: all 0.3s;
-            animation: rgb 3s linear infinite;
         }
 
         .spotify-toggle { left: -40px; border-radius: 10px 0 0 10px; }
         .donation-toggle { right: -40px; border-radius: 0 10px 10px 0; }
 
         .spotify-toggle:hover, .donation-toggle:hover {
-            animation: rgbGlow 2s ease-in-out infinite, rgb 3s linear infinite;
+            animation: glow 2s ease-in-out infinite;
         }
 
         .spotify-title, .donation-title {
             text-align: center;
             font-size: 18px;
             margin-bottom: 15px;
-            background: linear-gradient(90deg, #ff0080, #00ff80, #0080ff);
+            background: linear-gradient(90deg, #1E3A8A, #F97316);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: bold;
@@ -439,20 +463,20 @@
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #ff0080, #00ff80, #0080ff);
+            background: linear-gradient(135deg, #1E3A8A, #F97316);
             border: none;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 30px;
-            animation: rgb 3s linear infinite, pulse 2s ease-in-out infinite;
-            box-shadow: 0 5px 20px rgba(255, 0, 128, 0.5);
+            animation: pulse 2s ease-in-out infinite;
+            box-shadow: 0 5px 20px rgba(30, 58, 138, 0.5);
             transition: all 0.3s;
         }
 
         .chat-button:hover {
-            animation: rgbGlow 2s ease-in-out infinite, rgb 3s linear infinite;
+            animation: glow 2s ease-in-out infinite, pulse 2s ease-in-out infinite;
             transform: scale(1.1);
         }
 
@@ -462,11 +486,11 @@
             right: 0;
             width: 350px;
             height: 500px;
-            background: rgba(10, 10, 10, 0.95);
+            background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             border: 2px solid;
-            border-image: linear-gradient(135deg, #ff0080, #00ff80, #0080ff);
+            border-image: linear-gradient(135deg, #1E3A8A, #F97316);
             border-image-slice: 1;
             display: none;
             flex-direction: column;
@@ -480,9 +504,8 @@
 
         .chat-header {
             padding: 20px;
-            background: linear-gradient(135deg, #ff0080, #00ff80, #0080ff);
+            background: linear-gradient(135deg, #1E3A8A, #F97316);
             border-radius: 18px 18px 0 0;
-            animation: rgb 3s linear infinite;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -521,7 +544,7 @@
         }
 
         .chat-messages::-webkit-scrollbar-thumb {
-            background: linear-gradient(135deg, #ff0080, #00ff80, #0080ff);
+            background: linear-gradient(135deg, #1E3A8A, #F97316);
             border-radius: 10px;
         }
 
@@ -534,13 +557,14 @@
         }
 
         .message.bot {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(30, 58, 138, 0.2);
             align-self: flex-start;
-            border: 1px solid rgba(255, 0, 128, 0.3);
+            border: 1px solid rgba(30, 58, 138, 0.5);
+            color: #E5E7EB;
         }
 
         .message.user {
-            background: linear-gradient(135deg, #ff0080, #00ff80, #0080ff);
+            background: linear-gradient(135deg, #1E3A8A, #F97316);
             align-self: flex-end;
             color: white;
         }
@@ -555,25 +579,25 @@
         .chat-input {
             flex: 1;
             padding: 12px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: rgba(30, 58, 138, 0.2);
+            border: 2px solid rgba(30, 58, 138, 0.3);
             border-radius: 25px;
-            color: white;
+            color: #E5E7EB;
             font-size: 14px;
             outline: none;
             transition: all 0.3s;
         }
 
         .chat-input:focus {
-            border-color: #ff0080;
-            background: rgba(255, 255, 255, 0.08);
+            border-color: #F97316;
+            background: rgba(30, 58, 138, 0.3);
         }
 
         .chat-send {
             width: 45px;
             height: 45px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #ff0080, #00ff80, #0080ff);
+            background: linear-gradient(135deg, #1E3A8A, #F97316);
             border: none;
             cursor: pointer;
             display: flex;
@@ -585,7 +609,7 @@
 
         .chat-send:hover {
             transform: scale(1.1);
-            animation: rgbGlow 2s ease-in-out infinite;
+            animation: glow 2s ease-in-out infinite;
         }
 
         @media (max-width: 768px) {
@@ -604,7 +628,9 @@
 </head>
 <body>
     <nav class="navbar">
-        <div class="logo">Berat(Runia0/Zyrtheon)</div>
+        <div class="logo">
+            <span class="logo-icon">🌍</span>
+        </div>
         <div class="nav-links">
             <a href="#home" id="nav1">Ana Sayfa</a>
             <a href="#about" id="nav2">Hakkımda</a>
@@ -636,7 +662,7 @@
                 <br>
                 <p>Hedefim basit: ürettiğim şeylerin hem bana hem de kullananlara bir değer katması. Kısacası; çok yönlü, meraklı ve yaptığı işte sürekli daha iyisini arayan biriyim.</p>
             </div>
-            <div class="about-image" style="background: linear-gradient(135deg, #ff0080, #00ff80, #0080ff); animation: rgb 5s linear infinite;">
+            <div class="about-image" style="background: linear-gradient(135deg, #1E3A8A, #0D3B66, #F97316);">
                 <img src="1.png" alt="Berat" style="width: 100%; height: 100%; object-fit: cover; border-radius: 17px;">
             </div>
         </div>
@@ -737,13 +763,13 @@
         <div class="spotify-toggle" onclick="toggleSpotify()">🎵</div>
         <div class="spotify-title"><span id="spotify-title">🎶 Spotify Listelerim</span></div>
         <div class="spotify-player">
-            <a href="https://open.spotify.com/playlist/6St2kSvC4y9ayW1um5Vw32" target="_blank" style="display: block; padding: 15px; margin-bottom: 10px; background: rgba(255, 255, 255, 0.05); border-radius: 10px; text-decoration: none; color: white; border: 2px solid; border-image: linear-gradient(90deg, #ff0080, #00ff80, #0080ff); border-image-slice: 1; transition: all 0.3s;">
+            <a href="https://open.spotify.com/playlist/6St2kSvC4y9ayW1um5Vw32" target="_blank" style="display: block; padding: 15px; margin-bottom: 10px; background: rgba(30, 58, 138, 0.2); border-radius: 10px; text-decoration: none; color: white; border: 2px solid; border-image: linear-gradient(90deg, #1E3A8A, #F97316); border-image-slice: 1; transition: all 0.3s;">
                 <div style="font-size: 16px; font-weight: bold; margin-bottom: 5px;">🎸 Lunæ</div>
-                <div style="font-size: 12px; color: #aaa;" id="playlist-label">Çalma Listesi</div>
+                <div style="font-size: 12px; color: #9CA3AF;" id="playlist-label">Çalma Listesi</div>
             </a>
-            <a href="https://open.spotify.com/playlist/19xNefsCaoDDPq3g0rpS6N" target="_blank" style="display: block; padding: 15px; background: rgba(255, 255, 255, 0.05); border-radius: 10px; text-decoration: none; color: white; border: 2px solid; border-image: linear-gradient(90deg, #ff0080, #00ff80, #0080ff); border-image-slice: 1; transition: all 0.3s;">
+            <a href="https://open.spotify.com/playlist/19xNefsCaoDDPq3g0rpS6N" target="_blank" style="display: block; padding: 15px; background: rgba(30, 58, 138, 0.2); border-radius: 10px; text-decoration: none; color: white; border: 2px solid; border-image: linear-gradient(90deg, #1E3A8A, #F97316); border-image-slice: 1; transition: all 0.3s;">
                 <div style="font-size: 16px; font-weight: bold; margin-bottom: 5px;">🎸 BU NE1</div>
-                <div style="font-size: 12px; color: #aaa;" id="playlist-label2">Çalma Listesi</div>
+                <div style="font-size: 12px; color: #9CA3AF;" id="playlist-label2">Çalma Listesi</div>
             </a>
         </div>
     </div>
@@ -752,10 +778,10 @@
         <div class="donation-toggle" onclick="toggleDonation()">💰</div>
         <div class="donation-title"><span id="donation-title">❤︎ Bağış Yap</span></div>
         <div class="donation-content">
-            <a href="https://donate.bynogame.com/zyrtheon" target="_blank" style="display: block; padding: 20px; background: rgba(255, 255, 255, 0.05); border-radius: 10px; text-decoration: none; color: white; border: 2px solid; border-image: linear-gradient(135deg, #ff0080, #00ff80, #0080ff); border-image-slice: 1; text-align: center;">
+            <a href="https://donate.bynogame.com/zyrtheon" target="_blank" style="display: block; padding: 20px; background: rgba(30, 58, 138, 0.2); border-radius: 10px; text-decoration: none; color: white; border: 2px solid; border-image: linear-gradient(135deg, #1E3A8A, #F97316); border-image-slice: 1; text-align: center;">
                 <div style="font-size: 48px; margin-bottom: 10px;">🎮</div>
                 <div style="font-size: 16px; font-weight: bold; margin-bottom: 5px;">BYNoGame</div>
-                <div style="font-size: 12px; color: #aaa;" id="donation-subtitle">Bağış yaparak destekleyebilirsiniz</div>
+                <div style="font-size: 12px; color: #9CA3AF;" id="donation-subtitle">Bağış yaparak destekleyebilirsiniz</div>
             </a>
         </div>
     </div>
@@ -991,6 +1017,4 @@
         });
     </script>
 </body>
-
 </html>
-
