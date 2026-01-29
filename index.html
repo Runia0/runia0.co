@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Runia0/Zyrtheon</title>
-    <link rel="icon" href="logo.png" type="logo.png">
+    <link rel="icon" href="logo.png" type="image/png">
     <style>
         * {
             margin: 0;
@@ -58,8 +58,6 @@
         }
 
         .logo {
-            font-size: 30px;
-            font-weight: bold;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -68,8 +66,15 @@
         }
 
         .logo-icon {
-            font-size: 36px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid transparent;
+            background: linear-gradient(#0F172A, #0F172A) padding-box,
+                        linear-gradient(135deg, #1E3A8A, #F97316) border-box;
             animation: rotate 10s linear infinite;
+            transition: all 0.3s;
         }
 
         @keyframes rotate {
@@ -79,6 +84,7 @@
 
         .logo:hover .logo-icon {
             animation: rotate 2s linear infinite;
+            box-shadow: 0 0 20px rgba(249, 115, 22, 0.6);
         }
 
         .nav-links {
@@ -117,9 +123,9 @@
             background: rgba(30, 58, 138, 0.2);
             padding: 5px;
             border-radius: 25px;
-            border: 2px solid;
-            border-image: linear-gradient(90deg, #1E3A8A, #F97316);
-            border-image-slice: 1;
+            border: 2px solid transparent;
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)) padding-box,
+                        linear-gradient(90deg, #1E3A8A, #F97316) border-box;
         }
 
         .language-switcher button {
@@ -265,9 +271,9 @@
             align-items: center;
             justify-content: center;
             animation: pulse 3s ease-in-out infinite;
-            border: 3px solid;
-            border-image: linear-gradient(90deg, #1E3A8A, #F97316);
-            border-image-slice: 1;
+            border: 3px solid transparent;
+            background: linear-gradient(#0F172A, #0F172A) padding-box,
+                        linear-gradient(90deg, #1E3A8A, #F97316) border-box;
         }
 
         @keyframes pulse {
@@ -285,9 +291,9 @@
             background: rgba(30, 58, 138, 0.1);
             padding: 30px;
             border-radius: 15px;
-            border: 2px solid;
-            border-image: linear-gradient(45deg, #1E3A8A, #F97316);
-            border-image-slice: 1;
+            border: 2px solid transparent;
+            background: linear-gradient(rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.5)) padding-box,
+                        linear-gradient(45deg, #1E3A8A, #F97316) border-box;
             transition: all 0.3s;
         }
 
@@ -320,9 +326,9 @@
             background: rgba(30, 58, 138, 0.1);
             border-radius: 15px;
             overflow: hidden;
-            border: 2px solid;
-            border-image: linear-gradient(135deg, #1E3A8A, #F97316);
-            border-image-slice: 1;
+            border: 2px solid transparent;
+            background: linear-gradient(rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.5)) padding-box,
+                        linear-gradient(135deg, #1E3A8A, #F97316) border-box;
             transition: all 0.3s;
         }
 
@@ -377,9 +383,9 @@
             padding: 15px 30px;
             background: rgba(30, 58, 138, 0.2);
             border-radius: 50px;
-            border: 2px solid;
-            border-image: linear-gradient(90deg, #1E3A8A, #F97316);
-            border-image-slice: 1;
+            border: 2px solid transparent;
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)) padding-box,
+                        linear-gradient(90deg, #1E3A8A, #F97316) border-box;
             transition: all 0.3s;
         }
 
@@ -392,9 +398,9 @@
             text-align: center;
             padding: 30px;
             background: rgba(15, 23, 42, 0.9);
-            border-top: 2px solid;
-            border-image: linear-gradient(90deg, #1E3A8A, #F97316);
-            border-image-slice: 1;
+            border-top: 2px solid transparent;
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)) padding-box,
+                        linear-gradient(90deg, #1E3A8A, #F97316) border-box;
             color: #9CA3AF;
         }
 
@@ -405,9 +411,9 @@
             width: 320px;
             background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(10px);
-            border: 2px solid;
-            border-image: linear-gradient(135deg, #1E3A8A, #F97316);
-            border-image-slice: 1;
+            border: 2px solid transparent;
+            background: linear-gradient(rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.95)) padding-box,
+                        linear-gradient(135deg, #1E3A8A, #F97316) border-box;
             border-radius: 20px;
             padding: 20px;
             z-index: 999;
@@ -489,9 +495,9 @@
             background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(10px);
             border-radius: 20px;
-            border: 2px solid;
-            border-image: linear-gradient(135deg, #1E3A8A, #F97316);
-            border-image-slice: 1;
+            border: 2px solid transparent;
+            background: linear-gradient(rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.95)) padding-box,
+                        linear-gradient(135deg, #1E3A8A, #F97316) border-box;
             display: none;
             flex-direction: column;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
@@ -662,7 +668,7 @@
                 <br>
                 <p>Hedefim basit: ürettiğim şeylerin hem bana hem de kullananlara bir değer katması. Kısacası; çok yönlü, meraklı ve yaptığı işte sürekli daha iyisini arayan biriyim.</p>
             </div>
-            <div class="about-image" style="background: linear-gradient(135deg, #1E3A8A, #0D3B66, #F97316);">
+            <div class="about-image">
                 <img src="1.png" alt="Berat" style="width: 100%; height: 100%; object-fit: cover; border-radius: 17px;">
             </div>
         </div>
@@ -731,7 +737,7 @@
             <div class="project-card">
                 <div class="project-image">💻</div>
                 <div class="project-content">
-                    <h3 id="project6-title">Oyun Mekanikleri</h3>
+                    <h3>id="project6-title">Oyun Mekanikleri</h3>
                     <p id="project6-desc">Basit prototiplerden başlayıp gelişen yaratıcı oyun sistemi tasarımları.</p>
                 </div>
             </div>
@@ -741,286 +747,9 @@
     <section id="contact">
         <h2 id="contact-title">İletişim</h2>
         <div class="contact-content">
-            <p style="font-size: 18px; color: #aaa; margin-bottom: 20px;" id="contact-desc">
+            <p style="font-size: 18px; color: #9CA3AF; margin-bottom: 20px;" id="contact-desc">
                 Bir proje üzerinde birlikte çalışmak ister misiniz? Benimle iletişime geçin!
             </p>
             <div class="contact-info">
                 <a href="mailto:bc0507797@gmail.com" class="contact-item" style="text-decoration: none; color: white;">📧 E-mail</a>
-                <a href="tel:+905397907032" class="contact-item" style="text-decoration: none; color: white;">📱 +90 539 790 7032</a>
-                <a href="https://instagram.com/beratacus" target="_blank" class="contact-item" style="text-decoration: none; color: white;">📸 Instagram</a>
-                <a href="https://github.com/Runia0" target="_blank" class="contact-item" style="text-decoration: none; color: white;">💻 GitHub</a>
-                <a href="https://steamcommunity.com/profiles/76561199065036542/" target="_blank" class="contact-item" style="text-decoration: none; color: white;">🎮 Steam</a>
-                <a href="https://open.spotify.com/user/31lnrlaybv3pwnmouaqbyrm64pxq" target="_blank" class="contact-item" style="text-decoration: none; color: white;">🎵 Spotify</a>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p id="footer-text">&copy; 2025-2026 Alaeddin Berat ÇETİN. Tüm hakları saklıdır.</p>
-    </footer>
-
-    <div class="spotify-sidebar" id="spotifySidebar">
-        <div class="spotify-toggle" onclick="toggleSpotify()">🎵</div>
-        <div class="spotify-title"><span id="spotify-title">🎶 Spotify Listelerim</span></div>
-        <div class="spotify-player">
-            <a href="https://open.spotify.com/playlist/6St2kSvC4y9ayW1um5Vw32" target="_blank" style="display: block; padding: 15px; margin-bottom: 10px; background: rgba(30, 58, 138, 0.2); border-radius: 10px; text-decoration: none; color: white; border: 2px solid; border-image: linear-gradient(90deg, #1E3A8A, #F97316); border-image-slice: 1; transition: all 0.3s;">
-                <div style="font-size: 16px; font-weight: bold; margin-bottom: 5px;">🎸 Lunæ</div>
-                <div style="font-size: 12px; color: #9CA3AF;" id="playlist-label">Çalma Listesi</div>
-            </a>
-            <a href="https://open.spotify.com/playlist/19xNefsCaoDDPq3g0rpS6N" target="_blank" style="display: block; padding: 15px; background: rgba(30, 58, 138, 0.2); border-radius: 10px; text-decoration: none; color: white; border: 2px solid; border-image: linear-gradient(90deg, #1E3A8A, #F97316); border-image-slice: 1; transition: all 0.3s;">
-                <div style="font-size: 16px; font-weight: bold; margin-bottom: 5px;">🎸 BU NE1</div>
-                <div style="font-size: 12px; color: #9CA3AF;" id="playlist-label2">Çalma Listesi</div>
-            </a>
-        </div>
-    </div>
-
-    <div class="donation-sidebar" id="donationSidebar">
-        <div class="donation-toggle" onclick="toggleDonation()">💰</div>
-        <div class="donation-title"><span id="donation-title">❤︎ Bağış Yap</span></div>
-        <div class="donation-content">
-            <a href="https://donate.bynogame.com/zyrtheon" target="_blank" style="display: block; padding: 20px; background: rgba(30, 58, 138, 0.2); border-radius: 10px; text-decoration: none; color: white; border: 2px solid; border-image: linear-gradient(135deg, #1E3A8A, #F97316); border-image-slice: 1; text-align: center;">
-                <div style="font-size: 48px; margin-bottom: 10px;">🎮</div>
-                <div style="font-size: 16px; font-weight: bold; margin-bottom: 5px;">BYNoGame</div>
-                <div style="font-size: 12px; color: #9CA3AF;" id="donation-subtitle">Bağış yaparak destekleyebilirsiniz</div>
-            </a>
-        </div>
-    </div>
-
-    <div class="chat-widget">
-        <button class="chat-button" onclick="toggleChat()">💬</button>
-        <div class="chat-box" id="chatBox">
-            <div class="chat-header">
-                <h3 id="chat-header-title">Benimle Sohbet Et</h3>
-                <button class="chat-close" onclick="toggleChat()">×</button>
-            </div>
-            <div class="chat-messages" id="chatMessages">
-                <div class="message bot" id="welcome-msg">Merhaba! 👋 Ben Berat. Size nasıl yardımcı olabilirim?</div>
-            </div>
-            <div class="chat-input-area">
-                <input type="text" class="chat-input" id="chatInput" placeholder="Mesajınızı yazın..." onkeypress="if(event.key==='Enter') sendMessage()">
-                <button class="chat-send" onclick="sendMessage()">📤</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        const translations = {
-            tr: {
-                nav1: 'Ana Sayfa', nav2: 'Hakkımda', nav3: 'Yetenekler', nav4: 'Projeler', nav5: 'İletişim',
-                heroTitle: 'Merhaba, Ben Alaeddin Berat(Runia0/Zyrtheon) ÇETİN!',
-                heroSubtitle: 'Web Geliştirici • Tasarımcı • Developer',
-                heroCta: 'Benimle İletişime Geç!',
-                aboutTitle: 'Hakkımda',
-                aboutText: 'Merhaba, ben Berat. Yazılımın içinde büyüyen, yeni teknolojileri kurcalamayı seven ve aynı zamanda merak ettiği her konuda kafa yoran biriyim. Kod yazarken de, tasarım denerken de, müzikle uğraşırken de aynı şeyi arıyorum: ortaya gerçekten "ben yaptım" diyebileceğim bir şey koymak.<br><br>Bir gün Discord botu geliştiririm, ertesi gün oyun mekaniği tasarlarım; bazen rock şarkısı yazarım, bazen de yapay zeka projeleriyle uğraşırım. Tek bir alana sıkışmayı sevmem—öğrenmek hoşuma gider, yeni fikirlerin peşinden koşmak da öyle.<br><br>Hedefim basit: ürettiğim şeylerin hem bana hem de kullananlara bir değer katması. Kısacası; çok yönlü, meraklı ve yaptığı işte sürekli daha iyisini arayan biriyim.',
-                skillsTitle: 'Yeteneklerim',
-                skill1Title: 'Web Geliştirme',
-                skill1Desc: 'HTML, CSS, JavaScript, React, Node.js ile modern ve responsive web siteleri geliştiriyorum.',
-                skill2Title: 'UI/UX Tasarım',
-                skill2Desc: 'Kullanıcı odaklı, estetik ve işlevsel arayüz tasarımları oluşturuyorum.',
-                skill3Title: 'Mobil Uyumlu',
-                skill3Desc: 'Tüm cihazlarda mükemmel görünen responsive tasarımlar yapıyorum.',
-                skill4Title: 'Performans',
-                skill4Desc: 'Hızlı yüklenen, optimize edilmiş web uygulamaları geliştiriyorum.',
-                projectsTitle: 'Projelerim',
-                project1Title: 'Aviyonik Başarı',
-                project1Desc: '2022-2023 Eğitim Öğretim yılında Aziziye AİH Lisesiyle Katıldığım TEKNOFEST yarışmasında AVİYONİK başarı.',
-                project2Title: 'Oyun',
-                project2Desc: '5 tane FIVEM Sunucusu ve 2 tane ROBLOX oyunu',
-                project3Title: 'Yapay Zeka',
-                project3Desc: 'Öğrenen ve uyarlanan modern AI çözümü.',
-                project4Title: 'Discord Bot Projesi',
-                project4Desc: 'Komut odaklı gelişmiş Discord bot sistemi.',
-                project5Title: 'Web Geliştirme',
-                project5Desc: 'Modern, hızlı ve responsive arayüzler tasarlayan web projeleri.',
-                project6Title: 'Oyun Mekanikleri',
-                project6Desc: 'Basit prototiplerden başlayıp gelişen yaratıcı oyun sistemi tasarımları.',
-                contactTitle: 'İletişim',
-                contactDesc: 'Bir proje üzerinde birlikte çalışmak ister misiniz? Benimle iletişime geçin!',
-                footerText: '© 2025-2026 Alaeddin Berat ÇETİN. Tüm hakları saklıdır.',
-                spotifyTitle: '🎶 Spotify Listelerim',
-                donationTitle: '❤︎ Bağış Yap',
-                donationSubtitle: 'Bağış yaparak destekleyebilirsiniz',
-                playlistLabel: 'Çalma Listesi',
-                chatHeaderTitle: 'Benimle Sohbet Et',
-                welcomeMsg: 'Merhaba! 👋 Ben Berat. Size nasıl yardımcı olabilirim?',
-                chatPlaceholder: 'Mesajınızı yazın...'
-            },
-            en: {
-                nav1: 'Home', nav2: 'About', nav3: 'Skills', nav4: 'Projects', nav5: 'Contact',
-                heroTitle: 'Hello, I\'m Alaeddin Berat(Runia0/Zyrtheon) ÇETİN!',
-                heroSubtitle: 'Web Developer • Designer • Developer',
-                heroCta: 'Get In Touch!',
-                aboutTitle: 'About Me',
-                aboutText: 'Hello, I\'m Berat. Growing up in software, I love exploring new technologies and thinking about every topic I\'m curious about. Whether coding, designing, or working with music, I\'m looking for the same thing: creating something I can truly say "I made this."<br><br>One day I develop Discord bots, the next day I design game mechanics; sometimes I write rock songs, sometimes I work on AI projects. I don\'t like being confined to one area—I enjoy learning and pursuing new ideas.<br><br>My goal is simple: for what I create to add value to both me and the users. In short; I\'m versatile, curious, and always seeking to improve.',
-                skillsTitle: 'My Skills',
-                skill1Title: 'Web Development',
-                skill1Desc: 'I develop modern and responsive websites with HTML, CSS, JavaScript, React, and Node.js.',
-                skill2Title: 'UI/UX Design',
-                skill2Desc: 'I create user-centered, aesthetic, and functional interface designs.',
-                skill3Title: 'Responsive',
-                skill3Desc: 'I create responsive designs that look perfect on all devices.',
-                skill4Title: 'Performance',
-                skill4Desc: 'I develop fast-loading, optimized web applications.',
-                projectsTitle: 'My Projects',
-                project1Title: 'Avionics Achievement',
-                project1Desc: 'AVIONICS achievement award at TEKNOFEST competition with Aziziye AİH High School in 2022-2023.',
-                project2Title: 'Gaming',
-                project2Desc: '5 FIVEM Servers and 2 ROBLOX games',
-                project3Title: 'Artificial Intelligence',
-                project3Desc: 'Modern AI solution that learns and adapts.',
-                project4Title: 'Discord Bot Project',
-                project4Desc: 'Advanced command-based Discord bot system.',
-                project5Title: 'Web Development',
-                project5Desc: 'Modern, fast, and responsive web interface projects.',
-                project6Title: 'Game Mechanics',
-                project6Desc: 'Creative game system designs that evolve from simple prototypes.',
-                contactTitle: 'Contact',
-                contactDesc: 'Would you like to work together on a project? Get in touch!',
-                footerText: '© 2025-2026 Alaeddin Berat ÇETİN. All rights reserved.',
-                spotifyTitle: '🎶 My Spotify Playlists',
-                donationTitle: '❤︎ Donate',
-                donationSubtitle: 'You can support me by donating',
-                playlistLabel: 'Playlist',
-                chatHeaderTitle: 'Chat With Me',
-                welcomeMsg: 'Hello! 👋 I\'m Berat. How can I help you?',
-                chatPlaceholder: 'Type your message...'
-            }
-        };
-
-        function setLang(lang) {
-            document.getElementById('tr-btn').classList.remove('active');
-            document.getElementById('en-btn').classList.remove('active');
-            document.getElementById(lang + '-btn').classList.add('active');
-
-            const t = translations[lang];
-            document.getElementById('nav1').textContent = t.nav1;
-            document.getElementById('nav2').textContent = t.nav2;
-            document.getElementById('nav3').textContent = t.nav3;
-            document.getElementById('nav4').textContent = t.nav4;
-            document.getElementById('nav5').textContent = t.nav5;
-            document.getElementById('hero-title').textContent = t.heroTitle;
-            document.getElementById('hero-subtitle').textContent = t.heroSubtitle;
-            document.getElementById('hero-cta').textContent = t.heroCta;
-            document.getElementById('about-title').textContent = t.aboutTitle;
-            document.getElementById('about-text').innerHTML = t.aboutText;
-            document.getElementById('skills-title').textContent = t.skillsTitle;
-            document.getElementById('skill1-title').textContent = t.skill1Title;
-            document.getElementById('skill1-desc').textContent = t.skill1Desc;
-            document.getElementById('skill2-title').textContent = t.skill2Title;
-            document.getElementById('skill2-desc').textContent = t.skill2Desc;
-            document.getElementById('skill3-title').textContent = t.skill3Title;
-            document.getElementById('skill3-desc').textContent = t.skill3Desc;
-            document.getElementById('skill4-title').textContent = t.skill4Title;
-            document.getElementById('skill4-desc').textContent = t.skill4Desc;
-            document.getElementById('projects-title').textContent = t.projectsTitle;
-            document.getElementById('project1-title').textContent = t.project1Title;
-            document.getElementById('project1-desc').textContent = t.project1Desc;
-            document.getElementById('project2-title').textContent = t.project2Title;
-            document.getElementById('project2-desc').textContent = t.project2Desc;
-            document.getElementById('project3-title').textContent = t.project3Title;
-            document.getElementById('project3-desc').textContent = t.project3Desc;
-            document.getElementById('project4-title').textContent = t.project4Title;
-            document.getElementById('project4-desc').textContent = t.project4Desc;
-            document.getElementById('project5-title').textContent = t.project5Title;
-            document.getElementById('project5-desc').textContent = t.project5Desc;
-            document.getElementById('project6-title').textContent = t.project6Title;
-            document.getElementById('project6-desc').textContent = t.project6Desc;
-            document.getElementById('contact-title').textContent = t.contactTitle;
-            document.getElementById('contact-desc').textContent = t.contactDesc;
-            document.getElementById('footer-text').textContent = t.footerText;
-            document.getElementById('spotify-title').textContent = t.spotifyTitle;
-            document.getElementById('donation-title').textContent = t.donationTitle;
-            document.getElementById('donation-subtitle').textContent = t.donationSubtitle;
-            document.getElementById('playlist-label').textContent = t.playlistLabel;
-            document.getElementById('playlist-label2').textContent = t.playlistLabel;
-            document.getElementById('chat-header-title').textContent = t.chatHeaderTitle;
-            document.getElementById('welcome-msg').textContent = t.welcomeMsg;
-            document.getElementById('chatInput').placeholder = t.chatPlaceholder;
-        }
-
-        function toggleChat() {
-            document.getElementById('chatBox').classList.toggle('active');
-        }
-
-        function sendMessage() {
-            const input = document.getElementById('chatInput');
-            const messagesDiv = document.getElementById('chatMessages');
-            const message = input.value.trim();
-            
-            if (message === '') return;
-            
-            const userMsg = document.createElement('div');
-            userMsg.className = 'message user';
-            userMsg.textContent = message;
-            messagesDiv.appendChild(userMsg);
-            
-            input.value = '';
-            messagesDiv.scrollTop = messagesDiv.scrollHeight;
-            
-            setTimeout(() => {
-                const botMsg = document.createElement('div');
-                botMsg.className = 'message bot';
-                botMsg.textContent = getBotResponse(message);
-                messagesDiv.appendChild(botMsg);
-                messagesDiv.scrollTop = messagesDiv.scrollHeight;
-            }, 1000);
-        }
-
-        function getBotResponse(msg) {
-            const lowerMsg = msg.toLowerCase();
-            const isEnglish = document.getElementById('en-btn').classList.contains('active');
-            
-            if (lowerMsg.includes('merhaba') || lowerMsg.includes('hello') || lowerMsg.includes('hi')) {
-                return isEnglish ? '👋 Hello! How can I help you?' : '👋 Merhaba! Size nasıl yardımcı olabilirim?';
-            } else if (lowerMsg.includes('proje') || lowerMsg.includes('project')) {
-                return isEnglish ? '🚀 Check out my "Projects" section!' : '🚀 "Projeler" bölümüne göz atın!';
-            } else if (lowerMsg.includes('iletişim') || lowerMsg.includes('contact') || lowerMsg.includes('email')) {
-                return isEnglish ? '📧 You can reach me at bc0507797@gmail.com' : '📧 bc0507797@gmail.com ile iletişime geçebilirsiniz!';
-            } else if (lowerMsg.includes('github')) {
-                return '💻 GitHub: github.com/Runia0';
-            } else if (lowerMsg.includes('spotify') || lowerMsg.includes('müzik') || lowerMsg.includes('music')) {
-                return isEnglish ? '🎵 Check the sidebar on the right!' : '🎵 Sağ taraftaki sidebar\'dan dinleyebilirsiniz!';
-            } else if (lowerMsg.includes('bağış') || lowerMsg.includes('donation')) {
-                return isEnglish ? '💰 Check the left sidebar!' : '💰 Sol taraftaki bağış butonunu kullanabilirsiniz!';
-            } else if (lowerMsg.includes('teknoloji') || lowerMsg.includes('tech') || lowerMsg.includes('skill')) {
-                return isEnglish ? '💻 Web development, UI/UX, AI, and game development!' : '💻 Web geliştirme, UI/UX, yapay zeka ve oyun geliştirme!';
-            }
-            
-            return isEnglish ? '🤔 Interesting! Email me: bc0507797@gmail.com' : '🤔 İlginç! E-posta: bc0507797@gmail.com';
-        }
-
-        function toggleSpotify() {
-            document.getElementById('spotifySidebar').classList.toggle('collapsed');
-        }
-
-        function toggleDonation() {
-            document.getElementById('donationSidebar').classList.toggle('collapsed');
-        }
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-
-        window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.style.background = 'rgba(10, 10, 10, 0.95)';
-            } else {
-                navbar.style.background = 'rgba(10, 10, 10, 0.9)';
-            }
-        });
-    </script>
-</body>
-</html>
-
-
-
-
-
-
+                <a href="tel:+905397907032"
